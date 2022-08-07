@@ -21,6 +21,8 @@ import math
     #print(calculando_dnv)
     #dividir_ = calculando_dnv / y
     #print(dividir_)
+import time
+
 
 def Nuevo():
 
@@ -31,9 +33,24 @@ def Nuevo():
     
     
         [  👾 sen,cos,tg]  [COMMAND = "ConteudoNovo"   ]
-        [  😱 jogo3     ]  [COMMAND = "Jogo3"          ]""")
+        [  😱 jogo3     ]  [COMMAND = "Jogo3"          ]
+        [  😎 tg        ]  [COMMAND = "tg"             ]
+        [  😍 Pitagoras ]  [COMMAND = "Pitagora"       ]
+        
+        
+        
+        
+        
+        
+        """)
     if Menu == "Jogo3":
         jogo3()
+    if Menu == "ConteudoNovo":
+        calcular_sct()
+    if Menu == "tg":
+        tg_30cl()
+    if Menu == "Pitagoras":
+        MenuPitagoras()
 
 
 
@@ -83,7 +100,7 @@ def jogo3():
 
     calculo = valor_a2 * valor_b
     calculo_str = valor_a * valor_b2
-    div_str = calculo / calculo_str
+    div_str = calculo_str / calculo
     print(div_str)
 
 
@@ -93,18 +110,78 @@ def tg_30cl():
     #x = int(input("Se o numero conter  √ coloque-o aqui :   "))
     #k_o = math.pow(x, 1 / 2)
     #print(k_o)
-    y = int(float(input("Valor do numero da raiz :   ")))
+    y = int(float(input("Numero se tiver raiz :   ")))
 
     numero_cima = int(float(input("Valor que fica encima lado esquerdo :    ")))
     numero_baixo = int(float(input("Valor que fica embaixo lado direito :    ")))
-
-
+    criando_raiz = math.pow(y, 1/2)
     calculando_dnv = numero_cima * numero_baixo
     print(calculando_dnv)
     dividir_ = calculando_dnv / y
     print(dividir_)
-    numero_raiz = int(float(input("Raiz resolvida :    ")))
-    div_ = dividir_ * numero_raiz
+    #numero_raiz = int(float(input("Raiz resolvida :    ")))
+    div_02 = dividir_ * y
+    div_ = dividir_ * criando_raiz
     print(div_)
+
+def MenuPitagoras():
+    Menu_ = input("""
+    
+    
+                    \033[92m[MENU PITAGORASSSSSS 😎   ]
+                                
+                            [Opçoes]
+                            
+                            
+    [Descobrir X com hipotenusa e qualquer lado dos catetos] [ COMMAND = "Op1"  ]
+    [Descobrir valor da Hipotenusa com os 2 catetos        ] [ COMMAND = "Op2"  ]
+                              
+                              
+                            [Voltar Menu Principal ] [ COMMAND = "Menu"     ]
+                            
+                            
+                            
+                            
+                            
+                            
+                 
+    
+    
+    
+    """)
+
+    if Menu_ == "Menu":
+            Nuevo()
+    if Menu_ == "Op2":
+        Pitagoras()
+    if Menu_ == "Op1":
+        Ope1()
+
+
+
+def Pitagoras():
+    lado_A = int(input("Digite o valor X ( em todos os casos é 1 )  :    "))
+    lado_B = int(input("Digite o valor B :    "))
+    lado_C = int(input("Digite o valor C :    "))
+
+    lado_a_elev = lado_A^2
+    calculo_padrao = lado_B**2 + lado_C**2
+    final = math.pow(calculo_padrao, 1/2)
+    print(f"O Valor do X é {final}")
+
+def Ope1():
+
+    valor_hipo = int(float(input("Digite o Valor da hipotenusa :    ")))
+    valor_cat = int(float(input("Digite o valor do cateto :     ")))
+    calculo = valor_hipo**2
+    caculo_02 = valor_cat**2
+    resultado = calculo - caculo_02
+    raiz_result = math.pow(resultado, 1/2)
+
+    print(f"O Valor do Cateto é {raiz_result}, Obg por utilizar o script :) ")
+    time.sleep(10)
+    return MenuPitagoras()
+
+
 
 Nuevo()
